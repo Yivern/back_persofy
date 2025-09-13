@@ -11,9 +11,9 @@ from app.routers import musicRouter
 app = FastAPI(
     title = "persofy",
     version = Config.version,
-    docs_url = f"/api/persofy/v{ Config.version }/docs",
-    redoc_url = f"/api/persofy/v{ Config.version }/redoc",
-    openapi_url = f"/api/persofy/v{ Config.version }/openapi.json"
+    docs_url = f"/api/persofy/v1/docs",
+    redoc_url = f"/api/persofy/v1/redoc",
+    openapi_url = f"/api/persofy/v1/openapi.json"
 )
 
 
@@ -27,10 +27,10 @@ app.add_middleware(
 )
 
 
-@app.get("/api/health")
+@app.get("/api/persofy/v1/health")
 def health():
     return {"status": "ok"}
 
 
 app.include_router(
-    musicRouter.router, prefix = f"/api/persofy/v{Config.version}", tags = ["meta"], responses = {404: {"description": "Not Found"}})
+    musicRouter.router, prefix = f"/api/persofy/v1", tags = ["meta"], responses = {404: {"description": "Not Found"}})
