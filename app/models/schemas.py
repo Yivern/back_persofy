@@ -1,5 +1,4 @@
-from typing import Any, Dict, List, Optional
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
 
 
 class Song(BaseModel):
@@ -11,3 +10,7 @@ class Song(BaseModel):
 
 class SearchParams(BaseModel):
     query: str
+
+
+class AudioStreamResponse(BaseModel):
+    audio_url: str
