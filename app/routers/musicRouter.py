@@ -15,8 +15,8 @@ async def searchMusic(query: str):
     """
     return await MusicService.search(query)
 
-# response_model = AudioStreamResponse
-@router.get("/stream")
+
+@router.get("/stream", response_model = AudioStreamResponse)
 async def getMusic(query: str):
     """
     A partir de un link de youtube, retorna el streaming de audio.

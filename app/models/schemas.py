@@ -13,4 +13,4 @@ class SearchParams(BaseModel):
 
 
 class AudioStreamResponse(BaseModel):
-    audio_url: str
+    stream_url: str

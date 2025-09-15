@@ -2,7 +2,7 @@
 Archivo config.py generado de encript.py
 """
 class Config:
-    version = "0.3.0"
+    version = "0.3.2"
     port = 8030
     yt_options = {
         "format": "bestaudio/best",

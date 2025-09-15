@@ -63,7 +63,6 @@ class MusicService:
                     )
 
                 song_data = {
-                    "title": info.get('title', 'Título desconocido'),
                     "stream_url": stream_url,
                 }
 

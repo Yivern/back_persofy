@@ -33,4 +33,5 @@ def health():
 
 
 app.include_router(
-    musicRouter.router, prefix = f"/api/persofy/v1", tags = ["meta"], responses = {404: {"description": "Not Found"}})
+        musicRouter.router, prefix = f"/api/persofy/v1", tags = ["meta"], responses = {404: {"description": "Not Found"}}
+    )
