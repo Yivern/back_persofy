@@ -50,6 +50,7 @@ class MusicService:
                 info = ydl.extract_info(url, download = False)
 
                 stream_url = info.get('url')
+                duration = info.get('duration')
 
                 if not stream_url:
 
@@ -61,12 +62,13 @@ class MusicService:
                         status_code = status.HTTP_404_NOT_FOUND,
                         detail = "No se pudo encontrar una URL de stream válida."
                     )
-
-                song_data = {
+                
+                result = {
                     "stream_url": stream_url,
+                    "duration": duration,
                 }
 
-                return song_data
+                return result
 
         except yt_dlp.utils.DownloadError as e:
             print(f"yt-dlp error: {e}")
