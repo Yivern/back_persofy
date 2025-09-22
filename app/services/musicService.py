@@ -18,11 +18,12 @@ class MusicService:
         """
         try:
             with yt_dlp.YoutubeDL(Config.yt_options) as ydl:
-                info = ydl.extract_info(f"ytsearch10: {query}", download = False)
+                info = ydl.extract_info(f"ytsearch20: {query}", download = False)
                 results = []
 
                 for entry in info.get("entries", []):
                     results.append({
+                        "id": entry.get("id"),
                         "title": entry.get("title"),
                         "url": entry.get("url"),
                         "thumbnail": max(entry['thumbnails'], key=lambda t: t['width'])['url'],

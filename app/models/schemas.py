@@ -2,6 +2,7 @@ from pydantic import BaseModel
 
 
 class Song(BaseModel):
+    id: str
     title: str
     url: str
     thumbnail: str | None = None
