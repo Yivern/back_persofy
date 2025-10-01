@@ -34,13 +34,13 @@ class MusicService:
         except HTTPException as e:
             raise HTTPException(
                 status_code = status.HTTP_400_BAD_REQUEST,
-                detail = f"Error en la peticion a YT: { e }"
+                detail = f"Error en la peticion a YT: {str(e)}"
             )
 
         except Exception as e:
             raise HTTPException(
                 status_code = status.HTTP_400_BAD_REQUEST,
-                detail = f"Error { e }"
+                detail = f"Error {str(e)}"
             )
 
 
@@ -72,10 +72,10 @@ class MusicService:
                 return result
 
         except yt_dlp.utils.DownloadError as e:
-            print(f"yt-dlp error: {e}")
+            print(f"yt-dlp error: {str(e)}")
             raise HTTPException(
                 status_code = status.HTTP_400_BAD_REQUEST,
-                detail = "La URL no es válida o el video no está disponible."
+                detail = f"{str(e)}"
             )
         except Exception as e:
             print(f"Error inesperado al obtener audio: {e}")
